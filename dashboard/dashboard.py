@@ -2,9 +2,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
 import seaborn as sns
+import os
 
 # Load data
-df = pd.read_csv("day.csv")
+df = pd.read_csv(os.path.join(os.path.dirname(__file__), "day.csv"))
 df['dteday'] = pd.to_datetime(df['dteday'])
 df['season_label'] = df['season'].map({1: 'Spring', 2: 'Summer', 3: 'Fall', 4: 'Winter'})
 min_date = df["dteday"].min()
